@@ -6,9 +6,7 @@ import './styles/App.css';
 const App = () => {
     const [display, setDisplay] = useState('');
 
-    const handlePadClick = (id: string, audioSrc: string) => {
-        const audio = new Audio(audioSrc);
-        audio.play();
+    const handlePadClick = (id: string) => {
         setDisplay(id);
     };
 
@@ -16,14 +14,15 @@ const App = () => {
         <div id="drum-machine">
             <Display displayText={display} />
             <div className="drum-pads">
-                <DrumPad id="Heater 1" audioSrc="path/to/audio1.mp3" onClick={handlePadClick} />
-                <DrumPad id="Heater 2" audioSrc="path/to/audio2.mp3" onClick={handlePadClick} />
-                <DrumPad id="Heater 3" audioSrc="path/to/audio3.mp3" onClick={handlePadClick} />
-                <DrumPad id="Heater 4" audioSrc="path/to/audio4.mp3" onClick={handlePadClick} />
-                <DrumPad id="Clap" audioSrc="path/to/audio5.mp3" onClick={handlePadClick} />
-                <DrumPad id="Open Hi Hat" audioSrc="path/to/audio6.mp3" onClick={handlePadClick} />
-                <DrumPad id="Kick" audioSrc="path/to/audio7.mp3" onClick={handlePadClick} />
-                <DrumPad id="Closed Hi Hat" audioSrc="path/to/audio8.mp3" onClick={handlePadClick} />
+                <DrumPad id="Heater 1" audioClip="path/to/audio1.mp3" displayText="Heater 1" onPlay={handlePadClick} />
+                <DrumPad id="Heater 2" audioClip="path/to/audio2.mp3" displayText="Heater 2" onPlay={handlePadClick} />
+                <DrumPad id="Heater 3" audioClip="path/to/audio3.mp3" displayText="Heater 3" onPlay={handlePadClick} />
+                <DrumPad id="Heater 4" audioClip="path/to/audio4.mp3" displayText="Heater 4" onPlay={handlePadClick} />
+                <DrumPad id="Clap" audioClip="path/to/audio5.mp3" displayText="Clap" onPlay={handlePadClick} />
+                <DrumPad id="Open Hi Hat" audioClip="path/to/audio6.mp3" displayText="Open Hi Hat" onPlay={handlePadClick} />
+                <DrumPad id="Kick-n'-Hat" audioClip="path/to/audio7.mp3" displayText="Open Hi Hat" onPlay={handlePadClick} />
+                <DrumPad id="Kick" audioClip="path/to/audio8.mp3" displayText="Kick" onPlay={handlePadClick} />
+                <DrumPad id="Closed Hi Hat" audioClip="path/to/audio9.mp3" displayText="Closed Hi Hat" onPlay={handlePadClick} />
             </div>
         </div>
     );
